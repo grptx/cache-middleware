@@ -1,5 +1,5 @@
 {
-  "name": "@unica/cache-middleware",
+  "name": "cache-middleware",
   "version": "1.0.4",
   "description": "express http cache middleware",
   "main": "dist/index.js",
