@@ -3,10 +3,14 @@ import { NextFunction } from "express";
 import etag from "etag";
 
 export class HttpCacheControl {
-  public static LastModified(f: () => Date) {
-    return (_req: Request, res: Response, next: NextFunction): void => {
+  public static LastModified(f: () => Promise<Date> | Date) {
+    return async (
+      _req: Request,
+      res: Response,
+      next: NextFunction
+    ): Promise<void> => {
       if (f) {
-        const lastModified: Date = f();
+        const lastModified: Date = await f();
         res.setHeader("Last-Modified", lastModified.toUTCString());
         if (_req.headers["if-modified-since"]) {
           if (_req.headers["if-modified-since"] < lastModified.toUTCString()) {
