@@ -39,7 +39,7 @@ export class HttpCacheControl {
     return (_req: Request, res: Response, next: NextFunction): void => {
       if (f) {
         const age: number = f();
-        res.setHeader("Cache-Control", String(age));
+        res.setHeader("Cache-Control", `max-age=${String(age)}`);
       }
       next();
     };
