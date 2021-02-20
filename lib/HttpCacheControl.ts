@@ -34,8 +34,10 @@ export class HttpCacheControl {
         };
     }
 
-    public static async MaxAge(_req: Request, res: Response, next: NextFunction): Promise<void> {
-        res.setHeader('Cache-Control', 'max-age=300');
-        next();
+    public static MaxAge(age: number) {
+        return (_req: Request, res: Response, next: NextFunction): void => {
+            res.setHeader('Cache-Control', String(age));
+            next();
+        };
     }
 }
