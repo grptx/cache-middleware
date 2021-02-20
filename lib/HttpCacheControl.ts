@@ -1,5 +1,6 @@
 import { Request, Response } from 'express-serve-static-core';
 import { NextFunction } from 'express';
+import etag from 'etag';
 
 export class HttpCacheControl {
     public static LastModified(f: Function) {
@@ -21,8 +22,8 @@ export class HttpCacheControl {
     public static Etag(f: Function) {
         return (_req: Request, res: Response, next: NextFunction): void => {
             if (f) {
-                const etag: string = f();
-                res.setHeader('Etag', String(etag));
+                const _etag: string = f();
+                res.setHeader('Etag', etag(String(_etag)));
                 if (_req.headers["if-none-match"]) {
                     if (_req.headers['if-none-match'] === String(etag)) {
                         res.status(304).send();
