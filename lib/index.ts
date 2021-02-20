@@ -1,1 +1,1 @@
-export * from './HttpCacheControl';
+export * from "./HttpCacheControl";
