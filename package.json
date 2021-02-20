@@ -1,6 +1,6 @@
 {
   "name": "express-http-cache-middleware",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "express http cache middleware",
   "main": "dist/index.js",
   "repository": {
