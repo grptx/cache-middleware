@@ -1,7 +1,6 @@
 # Cache Middleware
 
 ## Install
-
 ```
 yarn add express-http-cache-middleware
 ```
