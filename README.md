@@ -1,5 +1,7 @@
 # Cache Middleware
 
+[![GitHub version](https://badge.fury.io/gh/grptx%2Fexpress-http-cache-middleware.svg)](https://badge.fury.io/gh/grptx%2Fexpress-http-cache-middleware)
+
 ## Install
 ```
 yarn add express-http-cache-middleware
